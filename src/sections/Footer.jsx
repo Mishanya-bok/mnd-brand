@@ -9,7 +9,7 @@ const links = [
 
 const socials = [
   { label: 'TG', href: 'https://t.me/mishanya_bok' },
-  { label: 'IG', href: 'https://instagram.com/mnd.brand' },
+  { label: 'IG', href: 'https://www.instagram.com/mnd.brend/' },
 ]
 
 export default function Footer() {
