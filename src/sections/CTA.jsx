@@ -6,7 +6,7 @@ const ease = [0.16, 1, 0.3, 1]
 const contacts = [
   {
     label: 'Telegram',
-    href: 'https://t.me/mnd_brand',
+    href: 'https://t.me/mishanya_bok',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.820 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.800-.893-.595-.314-1.232.313-1.808.156-.143 2.887-2.643 2.942-2.867.006-.027.007-.127-.044-.179-.051-.053-.126-.034-.181-.020-.077.018-1.300.826-3.671 2.424-.347.237-.663.352-.949.346-.312-.007-.914-.176-1.360-.321-.549-.178-.984-.272-.947-.574.020-.157.209-.317.568-.480 2.226-.972 3.710-1.615 4.454-1.929 2.12-.881 2.561-1.033 2.848-1.038z"/>
@@ -104,7 +104,7 @@ export default function CTA() {
             className="flex flex-col sm:flex-row gap-3 justify-center mb-10"
           >
             <a
-              href="https://t.me/mnd_brand"
+              href="https://t.me/mishanya_bok"
               className="inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 text-sm font-bold text-[var(--ink)] hover-sheen transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               style={{
                 background: 'var(--lime)',

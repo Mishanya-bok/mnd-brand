@@ -8,7 +8,7 @@ const links = [
 ]
 
 const socials = [
-  { label: 'TG', href: 'https://t.me/mnd_brand' },
+  { label: 'TG', href: 'https://t.me/mishanya_bok' },
   { label: 'IG', href: 'https://instagram.com/mnd.brand' },
 ]
 
