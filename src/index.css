@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  --bg-base:        #EDF1F7;
+  --bg-subtle:      #E4EAF3;
+  --glass-fill:     rgba(255, 255, 255, 0.55);
+  --glass-border:   rgba(255, 255, 255, 0.75);
+  --glass-shadow:   0 4px 32px rgba(100, 120, 160, 0.12);
+  --glass-blur:     20px;
+  --ink:            #0A0A0F;
+  --ink-muted:      #5A6272;
+  --ink-faint:      #9BA3B0;
+  --lime:           #AAFF00;
+  --lime-dim:       rgba(170, 255, 0, 0.15);
+  --grid-line:      rgba(160, 175, 200, 0.25);
+  --radius-sm:      10px;
+  --radius-md:      16px;
+  --radius-lg:      24px;
+  --radius-pill:    999px;
+}
+
+/* ── Base ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+  background: var(--bg-base);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── Global grid background ───────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Glass component ──────────────────────────────────────────── */
+.glass {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-dark {
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Typography ────────────────────────────────────────────────── */
+.font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(100,120,160,0.2); border-radius: 2px; }
+
+/* ── Selection ─────────────────────────────────────────────────── */
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ── Animations ─────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.hover-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.hover-sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: none;
+}
+.hover-sheen:hover::after {
+  animation: shimmer 0.6s ease forwards;
+}
