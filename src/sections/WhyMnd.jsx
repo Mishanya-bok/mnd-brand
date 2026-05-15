@@ -4,16 +4,16 @@ import { useInView } from '../hooks/useInView'
 const ease = [0.16, 1, 0.3, 1]
 
 const pills = [
-  'for people who create',
-  'premium 320 г/м²',
-  'oversize silhouette',
-  'нишевое комьюнити',
-  'не масс-маркет',
-  'clean visual identity',
-  'limited drops',
-  'кольцевой хлопок',
-  'двойная строчка',
-  'made with intention',
+  { text: 'for people who create', accent: true },
+  { text: 'premium 270 г/м²', accent: false },
+  { text: 'oversize silhouette', accent: false },
+  { text: 'нишевое комьюнити', accent: false },
+  { text: 'не масс-маркет', accent: false },
+  { text: 'clean visual identity', accent: false },
+  { text: 'limited drops', accent: true },
+  { text: 'кольцевой хлопок', accent: false },
+  { text: 'двойная строчка', accent: false },
+  { text: 'made with intention', accent: false },
 ]
 
 export default function WhyMnd() {
@@ -24,6 +24,10 @@ export default function WhyMnd() {
       className="relative py-24 md:py-32 overflow-hidden"
       style={{ background: '#EDF1F7' }}
     >
+      {/* Blobs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full opacity-15 pointer-events-none -z-0"
+        style={{ background: 'radial-gradient(ellipse, rgba(170,255,0,0.4), transparent 70%)', filter: 'blur(60px)' }} />
+
       <div
         className="absolute inset-0 -z-0 opacity-25"
         style={{
@@ -42,7 +46,7 @@ export default function WhyMnd() {
         >
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="h-px w-8" style={{ background: 'var(--lime)' }} />
-            <span className="text-xs font-bold uppercase tracking-widest text-[var(--ink-muted)]">
+            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--ink-muted)', letterSpacing: '0.15em', fontFamily: 'Manrope, sans-serif' }}>
               Почему mnd
             </span>
             <div className="h-px w-8" style={{ background: 'var(--lime)' }} />
@@ -56,46 +60,31 @@ export default function WhyMnd() {
         </motion.div>
 
         {/* Pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap gap-3 justify-center"
-        >
+        <div className="flex flex-wrap gap-3 justify-center">
           {pills.map((pill, i) => (
             <motion.div
-              key={pill}
-              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              key={pill.text}
+              initial={{ opacity: 0, scale: 0.88, y: 12 }}
               animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, ease, delay: 0.2 + i * 0.06 }}
-              className="glass rounded-pill px-5 py-3 text-sm font-medium text-[var(--ink)] hover-sheen cursor-default"
-              style={{ borderRadius: 'var(--radius-pill)' }}
+              transition={{ duration: 0.5, ease, delay: 0.15 + i * 0.07 }}
+              whileHover={{
+                scale: 1.07,
+                y: -4,
+                backgroundColor: pill.accent ? 'rgba(170,255,0,0.18)' : 'rgba(255,255,255,0.7)',
+                borderColor: pill.accent ? 'rgba(170,255,0,0.5)' : 'rgba(255,255,255,0.9)',
+              }}
+              className="glass-card rounded-2xl px-5 py-3 text-sm font-semibold text-[var(--ink)]"
+              style={{
+                cursor: 'default',
+                fontFamily: pill.accent ? 'Syne, sans-serif' : 'Manrope, sans-serif',
+                borderColor: pill.accent ? 'rgba(170,255,0,0.3)' : undefined,
+                background: pill.accent ? 'rgba(170,255,0,0.08)' : undefined,
+              }}
             >
-              {i === 0 || i === 6 ? (
-                <span style={{ color: 'var(--lime)', fontWeight: 700 }}>{pill}</span>
-              ) : (
-                pill
-              )}
+              {pill.text}
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Center statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease, delay: 0.7 }}
-          className="mt-20 glass rounded-3xl px-8 py-10 md:px-16 md:py-14 text-center max-w-2xl mx-auto"
-        >
-          <p
-            className="font-display font-bold text-[var(--ink)] leading-tight"
-            style={{ fontSize: 'clamp(20px, 3.5vw, 36px)' }}
-          >
-            Сделано для тех, кто делает.
-            <br />
-            <span style={{ color: 'var(--lime)' }}>Без компромиссов.</span>
-          </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

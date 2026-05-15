@@ -10,9 +10,9 @@ const products = [
     name: 'CONTENT IS OUR LIFE',
     colorway: 'White',
     colorHex: '#F5F5F0',
-    price: '4 900 ₽',
+    price: '2 500 ₽',
     fabric: '100% хлопок',
-    weight: '320 г/м²',
+    weight: '270 г/м²',
     fit: 'Oversize',
     print: 'Силкскрин + рукописный принт',
     description: 'Белая версия дропа. Чистый oversize с культовым принтом на спине. Лого mnd. на груди.',
@@ -25,9 +25,9 @@ const products = [
     name: 'CONTENT IS OUR LIFE',
     colorway: 'Black',
     colorHex: '#0A0A0F',
-    price: '4 900 ₽',
+    price: '2 500 ₽',
     fabric: '100% хлопок',
-    weight: '320 г/м²',
+    weight: '270 г/м²',
     fit: 'Oversize',
     print: 'Силкскрин + рукописный принт',
     description: 'Чёрная версия дропа. Максимальный контраст. Для тех, кто делает контент в любых условиях.',
@@ -212,7 +212,7 @@ function ProductCard({ product, index }) {
         </div>
 
         {/* Card info */}
-        <div className="glass rounded-2xl p-5">
+        <div className="glass-card rounded-2xl p-5">
           <div className="flex items-start justify-between mb-3">
             <div>
               <h3 className="font-display font-bold text-base text-[var(--ink)] leading-tight">

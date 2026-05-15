@@ -4,12 +4,12 @@ import { useInView } from '../hooks/useInView'
 const ease = [0.16, 1, 0.3, 1]
 
 const specs = [
-  { label: 'Ткань', value: '100% кольцевой хлопок', icon: '◈' },
-  { label: 'Плотность', value: '320 г/м²', icon: '◉' },
-  { label: 'Посадка', value: 'Oversize / dropped shoulder', icon: '◎' },
-  { label: 'Принт', value: 'Силкскрин + рукописный принт', icon: '◇' },
-  { label: 'Шов', value: 'Двойная строчка', icon: '◈' },
-  { label: 'Размерный ряд', value: 'XS — 2XL', icon: '◉' },
+  { label: 'Ткань', value: '100% кольцевой хлопок' },
+  { label: 'Плотность', value: '270 г/м²' },
+  { label: 'Посадка', value: 'Oversize / dropped shoulder' },
+  { label: 'Принт', value: 'Силкскрин + рукописный принт' },
+  { label: 'Шов', value: 'Двойная строчка' },
+  { label: 'Размерный ряд', value: 'XS — 2XL' },
 ]
 
 export default function Materials() {
@@ -20,6 +20,12 @@ export default function Materials() {
       className="relative py-24 md:py-32 overflow-hidden"
       style={{ background: '#EDF1F7' }}
     >
+      {/* Blobs for glass effect */}
+      <div className="absolute top-1/3 right-1/3 w-72 h-72 rounded-full opacity-25 pointer-events-none -z-0"
+        style={{ background: 'radial-gradient(circle, rgba(100,140,220,0.35), transparent 70%)', filter: 'blur(50px)' }} />
+      <div className="absolute bottom-1/4 left-1/4 w-56 h-56 rounded-full opacity-20 pointer-events-none -z-0"
+        style={{ background: 'radial-gradient(circle, rgba(170,255,0,0.2), transparent 70%)', filter: 'blur(40px)' }} />
+
       <div
         className="absolute inset-0 -z-0 opacity-25"
         style={{
@@ -32,14 +38,13 @@ export default function Materials() {
       <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
         <div className="grid md:grid-cols-2 gap-16 items-start">
 
-          {/* Left — images */}
+          {/* Left — image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease }}
             className="relative"
           >
-            {/* Main image */}
             <div className="rounded-3xl overflow-hidden aspect-[4/3]">
               <img
                 src="/assets/tshirt-black.jpeg"
@@ -49,30 +54,28 @@ export default function Materials() {
               />
             </div>
 
-            {/* Floating detail card */}
+            {/* Floating quality card */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease, delay: 0.4 }}
-              className="absolute -bottom-5 -left-5 glass rounded-2xl p-5 shadow-xl"
+              className="absolute -bottom-5 -left-5 glass-card rounded-2xl p-5 shadow-xl"
             >
-              <p className="text-xs text-[var(--ink-faint)] mb-1">Качество пошива</p>
-              <p className="font-display font-bold text-xl text-[var(--ink)]">
-                Premium
-              </p>
-              <p className="text-xs text-[var(--ink-muted)] mt-1">Двойная строчка, усиленные швы</p>
+              <p className="text-xs mb-1" style={{ color: 'var(--ink-faint)', fontFamily: 'Manrope, sans-serif' }}>Качество пошива</p>
+              <p className="font-display font-bold text-xl text-[var(--ink)]">Premium</p>
+              <p className="text-xs mt-1" style={{ color: 'var(--ink-muted)', fontFamily: 'Manrope, sans-serif' }}>Двойная строчка, усиленные швы</p>
             </motion.div>
 
-            {/* Floating gram card */}
+            {/* Floating density card */}
             <motion.div
               initial={{ opacity: 0, y: -16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease, delay: 0.55 }}
-              className="absolute -top-4 -right-4 glass rounded-2xl px-5 py-3"
+              className="absolute -top-4 -right-4 glass-card rounded-2xl px-5 py-3"
             >
-              <p className="text-xs text-[var(--ink-faint)]">Плотность</p>
+              <p className="text-xs" style={{ color: 'var(--ink-faint)', fontFamily: 'Manrope, sans-serif' }}>Плотность</p>
               <p className="font-display font-bold text-2xl text-[var(--ink)]">
-                320<span className="text-sm font-medium text-[var(--ink-muted)]"> г/м²</span>
+                270<span className="text-sm font-medium" style={{ color: 'var(--ink-muted)' }}> г/м²</span>
               </p>
             </motion.div>
           </motion.div>
@@ -87,7 +90,7 @@ export default function Materials() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-8" style={{ background: 'var(--lime)' }} />
-                <span className="text-xs font-bold uppercase tracking-widest text-[var(--ink-muted)]">
+                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--ink-muted)', letterSpacing: '0.14em', fontFamily: 'Manrope, sans-serif' }}>
                   Материал и качество
                 </span>
               </div>
@@ -97,9 +100,15 @@ export default function Materials() {
               >
                 Сделано, чтобы
                 <br />
-                <span style={{ color: 'var(--lime)' }}>носить</span> по-настоящему.
+                <span
+                  className="lime-text"
+                  style={{ fontStyle: 'italic' }}
+                >
+                  носить
+                </span>{' '}
+                <span className="text-[var(--ink)]">по-настоящему.</span>
               </h2>
-              <p className="text-[var(--ink-muted)] mt-4 text-sm md:text-base leading-relaxed max-w-sm">
+              <p className="mt-4 text-sm md:text-base leading-relaxed max-w-sm" style={{ color: 'var(--ink-muted)' }}>
                 Плотный кольцевой хлопок. Классика oversize с dropped shoulder.
                 Печать, которая не трескается и не выцветает.
               </p>
@@ -112,9 +121,10 @@ export default function Materials() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, ease, delay: 0.15 + i * 0.08 }}
-                  className="glass rounded-2xl p-4"
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className="glass-card rounded-2xl p-4"
                 >
-                  <p className="text-xs text-[var(--ink-faint)] mb-1">{spec.label}</p>
+                  <p className="text-xs mb-1" style={{ color: 'var(--ink-faint)', fontFamily: 'Manrope, sans-serif' }}>{spec.label}</p>
                   <p className="text-sm font-semibold text-[var(--ink)] leading-snug">{spec.value}</p>
                 </motion.div>
               ))}

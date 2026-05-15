@@ -1,3 +1,4 @@
+import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 import FeaturedDrop from './sections/FeaturedDrop'
@@ -12,6 +13,7 @@ import Footer from './sections/Footer'
 export default function App() {
   return (
     <div className="min-h-screen">
+      <Cursor />
       <Navbar />
       <main>
         <Hero />

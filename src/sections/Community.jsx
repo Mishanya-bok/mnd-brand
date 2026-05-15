@@ -3,14 +3,28 @@ import { useInView } from '../hooks/useInView'
 
 const ease = [0.16, 1, 0.3, 1]
 
-const members = [
-  { initials: 'АК', name: 'Артём К.', role: 'Кинооператор', note: 'носит mnd. с первого дропа' },
-  { initials: 'МВ', name: 'Михаил В.', role: 'Монтажёр', note: 'снимает контент для 3M+ подписчиков' },
-  { initials: 'ДС', name: 'Дарья С.', role: 'Арт-директор', note: 'работает с топовыми брендами' },
-  { initials: 'ИЛ', name: 'Иван Л.', role: 'Motion Designer', note: 'создаёт визуальные миры' },
-  { initials: 'ЕП', name: 'Елена П.', role: 'Фотограф', note: 'снимала 100+ fashion кампейнов' },
-  { initials: 'НБ', name: 'Никита Б.', role: 'Режиссёр', note: 'авторское кино и коммерция' },
+const professions = [
+  { label: 'Кинооператоры', size: 'lg' },
+  { label: 'Монтажёры', size: 'md' },
+  { label: 'Арт-директоры', size: 'md' },
+  { label: 'Режиссёры', size: 'lg' },
+  { label: 'Дизайнеры', size: 'md' },
+  { label: 'Motion-дизайнеры', size: 'sm' },
+  { label: 'Фотографы', size: 'md' },
+  { label: 'Архитекторы', size: 'sm' },
+  { label: 'Художники', size: 'lg' },
+  { label: 'Музыканты', size: 'sm' },
+  { label: 'Строители', size: 'md' },
+  { label: 'Мастера', size: 'md' },
 ]
+
+const marqueeItems = [...professions, ...professions]
+
+const sizeMap = {
+  sm: 'text-sm px-4 py-2.5',
+  md: 'text-base px-5 py-3',
+  lg: 'text-lg px-6 py-4 font-bold',
+}
 
 export default function Community() {
   const [ref, inView] = useInView()
@@ -20,6 +34,12 @@ export default function Community() {
       className="relative py-24 md:py-32 overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #EDF1F7 0%, #E0E8F4 100%)' }}
     >
+      {/* Blobs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-64 rounded-full opacity-20 pointer-events-none -z-0"
+        style={{ background: 'radial-gradient(ellipse, rgba(170,255,0,0.3), transparent 70%)', filter: 'blur(60px)' }} />
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full opacity-15 pointer-events-none -z-0"
+        style={{ background: 'radial-gradient(circle, rgba(100,140,220,0.3), transparent 70%)', filter: 'blur(50px)' }} />
+
       <div
         className="absolute inset-0 -z-0 opacity-20"
         style={{
@@ -39,7 +59,7 @@ export default function Community() {
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8" style={{ background: 'var(--lime)' }} />
-            <span className="text-xs font-bold uppercase tracking-widest text-[var(--ink-muted)]">
+            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--ink-muted)', letterSpacing: '0.15em', fontFamily: 'Manrope, sans-serif' }}>
               Creative Community
             </span>
           </div>
@@ -47,53 +67,62 @@ export default function Community() {
             className="font-display font-bold text-[var(--ink)] leading-tight"
             style={{ fontSize: 'clamp(28px, 5vw, 56px)' }}
           >
-            Уже носят
+            Одни ценности.
             <br />
-            <span style={{ color: 'var(--lime)' }}>сильные люди.</span>
+            <span className="lime-text">Разные языки.</span>
           </h2>
-          <p className="text-[var(--ink-muted)] mt-4 text-sm md:text-base leading-relaxed">
-            mnd — не массовый бренд. Его носят те, кто создаёт: операторы,
-            монтажёры, дизайнеры, режиссёры. Сообщество творческих людей,
-            которые делают сильные вещи.
+          <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: 'var(--ink-muted)' }}>
+            mnd — бренд, который объединяет творческих людей из разных областей.
+            Неважно, чем ты занимаешься — важно, как ты это делаешь.
           </p>
         </motion.div>
 
-        {/* Members grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {members.map((m, i) => (
-            <motion.div
-              key={m.name}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease, delay: 0.1 + i * 0.08 }}
-              className="glass rounded-2xl p-5 group hover-sheen"
-            >
-              {/* Avatar */}
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold text-[var(--ink)] mb-4"
-                style={{ background: 'rgba(170,255,0,0.12)', border: '1px solid rgba(170,255,0,0.3)' }}
-              >
-                {m.initials}
-              </div>
-
-              <p className="font-display font-semibold text-sm text-[var(--ink)] mb-0.5">{m.name}</p>
-              <p className="text-xs font-medium text-[var(--lime)] mb-2">{m.role}</p>
-              <p className="text-xs text-[var(--ink-faint)] leading-relaxed">{m.note}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Tagline */}
+        {/* Asymmetric pills grid */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 flex items-center gap-4"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap gap-3 mb-16"
         >
-          <p className="text-xs uppercase tracking-widest text-[var(--ink-faint)]">
-            присоединяйся к кругу
+          {professions.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, scale: 0.85, y: 12 }}
+              animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, ease, delay: 0.2 + i * 0.05 }}
+              whileHover={{
+                scale: 1.06,
+                backgroundColor: 'rgba(170,255,0,0.12)',
+                borderColor: 'rgba(170,255,0,0.4)',
+                y: -3,
+              }}
+              className={`glass-card rounded-2xl font-display text-[var(--ink)] ${sizeMap[item.size]}`}
+              style={{ cursor: 'default' }}
+            >
+              {item.label}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Central statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease, delay: 0.7 }}
+          className="glass-card rounded-3xl px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center gap-8 md:gap-16"
+        >
+          <div className="shrink-0 text-center md:text-left">
+            <p className="font-display font-bold text-[var(--ink)]" style={{ fontSize: 'clamp(20px, 3vw, 36px)' }}>
+              Бренд, который
+              <br />
+              <span className="lime-text">формирует комьюнити.</span>
+            </p>
+          </div>
+          <div className="h-px md:h-14 w-16 md:w-px" style={{ background: 'var(--grid-line)' }} />
+          <p className="text-sm md:text-base leading-relaxed max-w-sm text-center md:text-left" style={{ color: 'var(--ink-muted)' }}>
+            Не масс-маркет. Не для всех. Для тех, кто понимает —
+            что важно не просто делать, а делать с отдачей.
           </p>
-          <div className="h-px flex-1 max-w-[80px]" style={{ background: 'var(--grid-line)' }} />
         </motion.div>
       </div>
     </section>
