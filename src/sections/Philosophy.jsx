@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
+import FloatingShapes from '../components/FloatingShapes'
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -34,6 +35,8 @@ export default function Philosophy() {
         }}
       />
 
+      <FloatingShapes variant="light" />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div ref={ref} className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
 
@@ -61,7 +64,7 @@ export default function Philosophy() {
                 <br />
                 не объясняй,
                 <br />
-                <span className="lime-text" style={{ fontStyle: 'italic' }}>
+                <span style={{ color: 'var(--lime-text)', fontStyle: 'italic' }}>
                   просто сделай.
                 </span>
               </h2>

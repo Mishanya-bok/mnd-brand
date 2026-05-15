@@ -84,7 +84,7 @@ export default function CTA() {
             style={{ fontSize: 'clamp(32px, 6vw, 72px)' }}
           >
             Поводов ждать{' '}
-            <span style={{ color: 'var(--lime)' }}>нет.</span>
+            <span style={{ color: 'var(--lime-text)' }}>нет.</span>
           </motion.h2>
 
           <motion.p

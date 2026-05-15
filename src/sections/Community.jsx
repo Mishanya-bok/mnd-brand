@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
+import FloatingShapes from '../components/FloatingShapes'
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -49,6 +50,7 @@ export default function Community() {
         }}
       />
 
+      <FloatingShapes variant="light" />
       <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
         {/* Header */}
         <motion.div
@@ -69,7 +71,7 @@ export default function Community() {
           >
             Одни ценности.
             <br />
-            <span className="lime-text">Разные языки.</span>
+            <span style={{ color: 'var(--lime-text)' }}>Разные языки.</span>
           </h2>
           <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: 'var(--ink-muted)' }}>
             mnd — бренд, который объединяет творческих людей из разных областей.
@@ -115,7 +117,7 @@ export default function Community() {
             <p className="font-display font-bold text-[var(--ink)]" style={{ fontSize: 'clamp(20px, 3vw, 36px)' }}>
               Бренд, который
               <br />
-              <span className="lime-text">формирует комьюнити.</span>
+              <span style={{ color: 'var(--lime-text)' }}>формирует комьюнити.</span>
             </p>
           </div>
           <div className="h-px md:h-14 w-16 md:w-px" style={{ background: 'var(--grid-line)' }} />

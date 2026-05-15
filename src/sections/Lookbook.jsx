@@ -52,7 +52,7 @@ export default function Lookbook() {
           >
             Контент
             <br />
-            <span style={{ color: 'var(--lime)' }}>— это жизнь.</span>
+            <span style={{ color: 'var(--lime)' }}>— это жизнь.</span>{/* lime OK on dark bg */}
           </h2>
 
           <p className="text-white/60 text-sm md:text-base leading-relaxed mb-10 max-w-sm">

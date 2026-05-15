@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
+import FloatingShapes from '../components/FloatingShapes'
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -35,6 +36,7 @@ export default function Materials() {
         }}
       />
 
+      <FloatingShapes variant="light" />
       <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
         <div className="grid md:grid-cols-2 gap-16 items-start">
 
@@ -100,13 +102,8 @@ export default function Materials() {
               >
                 Сделано, чтобы
                 <br />
-                <span
-                  className="lime-text"
-                  style={{ fontStyle: 'italic' }}
-                >
-                  носить
-                </span>{' '}
-                <span className="text-[var(--ink)]">по-настоящему.</span>
+                <span style={{ color: 'var(--lime-text)', fontStyle: 'italic' }}>носить</span>{' '}
+                по-настоящему.
               </h2>
               <p className="mt-4 text-sm md:text-base leading-relaxed max-w-sm" style={{ color: 'var(--ink-muted)' }}>
                 Плотный кольцевой хлопок. Классика oversize с dropped shoulder.

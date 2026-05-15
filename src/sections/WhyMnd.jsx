@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
+import FloatingShapes from '../components/FloatingShapes'
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -37,6 +38,7 @@ export default function WhyMnd() {
         }}
       />
 
+      <FloatingShapes variant="light" />
       <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
