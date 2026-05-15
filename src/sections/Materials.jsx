@@ -102,7 +102,7 @@ export default function Materials() {
               >
                 Сделано, чтобы
                 <br />
-                <span style={{ color: 'var(--lime-text)', fontStyle: 'italic' }}>носить</span>{' '}
+                <span className="lime-text" style={{ fontStyle: 'italic' }}>носить</span>{' '}
                 по-настоящему.
               </h2>
               <p className="mt-4 text-sm md:text-base leading-relaxed max-w-sm" style={{ color: 'var(--ink-muted)' }}>

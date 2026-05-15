@@ -64,7 +64,7 @@ export default function Philosophy() {
                 <br />
                 не объясняй,
                 <br />
-                <span style={{ color: 'var(--lime-text)', fontStyle: 'italic' }}>
+                <span className="lime-text" style={{ fontStyle: 'italic' }}>
                   просто сделай.
                 </span>
               </h2>

@@ -100,27 +100,6 @@ export default function Cursor() {
           ))}
         </svg>
       </motion.div>
-
-      {/* Following box ring */}
-      <motion.div
-        className="cursor-box"
-        style={{ x: boxX, y: boxY, width: BOX, height: BOX }}
-        animate={{
-          scale: hovered ? 1.6 : clicking ? 0.85 : 1,
-          rotate: hovered ? 45 : 0,
-          borderColor: hovered ? 'rgba(170,255,0,0.7)' : 'rgba(10,10,15,0.25)',
-          backgroundColor: hovered ? 'rgba(170,255,0,0.06)' : 'transparent',
-        }}
-        transition={{ duration: 0.22, ease: [0.16,1,0.3,1] }}
-        style={{
-          x: boxX,
-          y: boxY,
-          width: BOX,
-          height: BOX,
-          border: '2px solid rgba(10,10,15,0.25)',
-          borderRadius: 0, // square = pixel art feel
-        }}
-      />
     </>
   )
 }

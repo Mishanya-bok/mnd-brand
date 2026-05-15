@@ -22,9 +22,9 @@ const professions = [
 const marqueeItems = [...professions, ...professions]
 
 const sizeMap = {
-  sm: 'text-sm px-4 py-2.5',
-  md: 'text-base px-5 py-3',
-  lg: 'text-lg px-6 py-4 font-bold',
+  sm: 'text-sm px-5 py-3.5',
+  md: 'text-base px-5 py-3.5',
+  lg: 'text-lg px-6 py-3.5 font-bold',
 }
 
 export default function Community() {
@@ -71,7 +71,7 @@ export default function Community() {
           >
             Одни ценности.
             <br />
-            <span style={{ color: 'var(--lime-text)' }}>Разные языки.</span>
+            <span className="lime-text">Разные языки.</span>
           </h2>
           <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: 'var(--ink-muted)' }}>
             mnd — бренд, который объединяет творческих людей из разных областей.
@@ -84,7 +84,7 @@ export default function Community() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap gap-3 mb-16"
+          className="flex flex-wrap gap-3 mb-16 items-center"
         >
           {professions.map((item, i) => (
             <motion.div
@@ -117,7 +117,7 @@ export default function Community() {
             <p className="font-display font-bold text-[var(--ink)]" style={{ fontSize: 'clamp(20px, 3vw, 36px)' }}>
               Бренд, который
               <br />
-              <span style={{ color: 'var(--lime-text)' }}>формирует комьюнити.</span>
+              <span className="lime-text">формирует комьюнити.</span>
             </p>
           </div>
           <div className="h-px md:h-14 w-16 md:w-px" style={{ background: 'var(--grid-line)' }} />

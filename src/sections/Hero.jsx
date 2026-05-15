@@ -84,7 +84,7 @@ export default function Hero() {
             transition={{ duration: 0.7, ease, delay: 0.55 }}
             className="text-base md:text-lg text-[var(--ink-muted)] max-w-sm mb-10 leading-relaxed"
           >
-            bренд, который объединяет творческих людей из разных областей.
+            Бренд, который объединяет творческих людей из разных областей.
             Формирует комьюнити тех, кто проявляется.
           </motion.p>
 

@@ -74,14 +74,11 @@ a, button, [role="button"] { cursor: none; }
   box-shadow: 0 8px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
-/* ── Lime text (readable on light bg) ────────────────────────── */
+/* ── Lime text — bright lime + dark stroke for readability ────── */
 .lime-text {
-  color: var(--lime-text);
-}
-
-.lime-text-bright {
   color: var(--lime);
-  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.55);
+  paint-order: stroke fill;
 }
 
 /* ── Font ────────────────────────────────────────────────────── */
